@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: #1ab763;
+}
+nav{
+    width: 100%;
+    padding: 1rem 8%;
+    background: #613b57;
+    border-bottom: 10px solid #86a092fb;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
