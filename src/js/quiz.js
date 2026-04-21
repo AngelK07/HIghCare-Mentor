@@ -169,10 +169,6 @@ async function submitQuiz() {
         correct,
         wrong
     }));
-
-    // 👉 REDIRECT
-    window.location.href = "result.html";
-    sendToSupabase(score, correct, wrong);
     async function sendToSupabase(score, correct, wrong) {
         const user_id = localStorage.getItem("user_id");
         const username = localStorage.getItem("username");
@@ -196,6 +192,10 @@ async function submitQuiz() {
             console.log("Saved successfully");
         }
     }
+
+    // 👉 REDIRECT
+    window.location.href = "result.html";
+    sendToSupabase(score, correct, wrong);
 }
 
 loadQuestions();
