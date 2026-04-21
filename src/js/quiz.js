@@ -145,6 +145,30 @@ function confirmSubmit() {
     if (confirm("Submit quiz?")) submitQuiz();
 }
 
+async function sendToSupabase(score, correct, wrong) {
+    console.log("Is this even working?")
+    const user_id = localStorage.getItem("user_id");
+    const username = localStorage.getItem("username");
+
+    const { error } = await supabaseClient
+        .from("Quiz_attempts")
+        .insert([{
+            user_id:user_id,
+            username:username,
+            Subject: subject,
+            no_of_questions: num,
+            correct_questions: correct,
+            time_taken: getTime() - timeLeft,
+            score,
+            answers
+        }]);
+
+    if (error) {
+        console.error("Insert failed:", error);
+    } else {
+        console.log("Saved successfully");
+    }
+}
 async function submitQuiz() {
     clearInterval(timerInterval);
 
@@ -169,31 +193,8 @@ async function submitQuiz() {
         correct,
         wrong
     }));
+    await sendToSupabase(score, correct, wrong);
     window.location.href = "result.html";
-    async function sendToSupabase(score, correct, wrong) {
-        const user_id = localStorage.getItem("user_id");
-        const username = localStorage.getItem("username");
-
-        const { error } = await supabaseClient
-            .from("Quiz_attempts")
-            .insert([{
-                user_id:user_id,
-                username:username,
-                Subject: subject,
-                no_of_questions: num,
-                correct_questions: correct,
-                time_taken: getTime() - timeLeft,
-                score,
-                answers
-            }]);
-
-        if (error) {
-            console.error("Insert failed:", error);
-        } else {
-            console.log("Saved successfully");
-        }
-    }
-     await sendToSupabase(score, correct, wrong);
 }
 
 loadQuestions();
