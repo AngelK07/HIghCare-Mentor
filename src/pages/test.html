@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <p class="Head"> MCQS TEST</p>
-        <div class="Select">
-            <label for="Name"> Name: </label>
-            <input type="text" id="Name">
-            <label for="StudentID"> ID: </label>
-            <input type="text" id="StudentID">
-            <label for="Subject">Subject Type : </label>
-            <select id="Subject">
-                <option value="Botany">Botany</option>
-                <option value="Zoology">Zoology</option>
-                <option value="Physics">Physics</option>
-                <option value="Chemistry">Chemistry</option>
-                <option value="MAT">MAT</option>
-            </select>
-            <label for="Count"> No of questions: </label>
-            <select id="Count">
-                <option value="1">50</option>
-                <option value="2">100</option>
-                <option value="3">200</option>
-            </select>
+<head>
+    <title>HCM Quiz</title>
+    <link rel="stylesheet" href="../css/front.css">
+</head>
+<body>
+
+<div class="topbar">
+    <div class="left">
+        <img src="../assets/web logo1.png" class="logo-small" alt="logo">
+        <span id="qno"></span>
+    </div>
+    <div id="timer" class="timer"></div>
+</div>
+
+<div class="main">
+
+    <div class="question-box">
+        <h2 id="question"></h2>
+
+        <div id="options"></div>
+
+        <div class="nav">
+            <button onclick="prevQ()" class="btn-outline">Previous</button>
+            <button id="nextBtn" onclick="nextQ()" class="btn-main">Next</button>
         </div>
-    </body>
+    </div>
+
+    <div class="palette" id="palette"></div>
+
+</div>
+
+<button class="floating" onclick="togglePalette()">Q</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="../js/quiz.js"></script>
+
+</body>
 </html>

@@ -1,0 +1,101 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body center layout */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f172a; /* dark modern background */
+}
+
+/* Main container */
+.container {
+    width: 90%;
+    max-width: 420px;
+    background: #111827;
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Logo */
+.logo {
+    width: 90px;
+    margin-bottom: 15px;
+}
+
+/* Heading */
+h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+/* Dropdowns */
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #1f2937;
+    color: white;
+    cursor: pointer;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #16a34a;
+}
+/* Input field */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #1f2937;
+    color: white;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    select, button {
+        font-size: 15px;
+        padding: 11px;
+    }
+}

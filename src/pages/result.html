@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="../css/result.css">
+</head>
+<body>
+
+<div class="result-container">
+    <h1>Quiz Result</h1>
+
+    <div class="card">
+        <p><span>Score:</span> <b id="score"></b></p>
+        <p><span>Correct:</span> <b id="correct"></b></p>
+        <p><span>Wrong:</span> <b id="wrong"></b></p>
+    </div>
+
+    <button onclick="goHome()">Back to Home</button>
+</div>
+
+<script>
+    const data = JSON.parse(localStorage.getItem("result"));
+
+    document.getElementById("score").innerText = data.score;
+    document.getElementById("correct").innerText = data.correct;
+    document.getElementById("wrong").innerText = data.wrong;
+
+    function goHome() {
+        window.location.href = "../../index.html";
+    }
+</script>
+
+</body>
+</html>

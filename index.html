@@ -1,41 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIGH CARE MENTOR</title>
-    <link rel="stylesheet" href="src/css/front.css">
-    <!-- calling supabase and linking js-->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="src/js/supabase.js"></script>
-
+    <title>HCM Quiz</title>
+    <link rel="stylesheet" href="src/css/index.css">
 </head>
-    <body>
-        <nav class="navbar">
-            <div class="navbar-container">
-            <div class="title">
-                <img src="src/assets/web%20logo1.png" class="logo" alt="HCM">
-            </div>
-                <button class="navbar-toggler">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="src/pages/test.html">Questions</a></li>
-                <li><a href="#">Notes</a></li>
-                <li><a href="#">Routines</a></li>
-                <li><a href="#">Package</a></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">IDK</a></li>
-                <li><a href="#">Support</a></li>
-            </ul>
-            <!--<div class="buttons">
-                <button class="log in">Log in</button>
-                <button class="signup"> Sign up</button>
-            </div>-->
-            </div>
-        </nav>
-    </body>
+<body>
+
+<div class="container">
+    <img src="src/assets/web logo1.png" class="logo">
+
+    <h2>Start Quiz</h2>
+
+    <input type="text" id="username" placeholder="Enter your name (optional)">
+    <select id="subject">
+        <option value="">Select Subject</option>
+        <option>Zoology</option>
+        <option>Botany</option>
+        <option>Physics</option>
+        <option>Chemistry</option>
+        <option>MAT</option>
+        <option>CEE TYPE</option>
+    </select>
+
+    <select id="num">
+        <option value="">No of Questions</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+    </select>
+
+    <button onclick="startQuiz()">Start Quiz</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="src/js/app.js"></script>
+</body>
 </html>
