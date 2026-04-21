@@ -163,33 +163,6 @@ async function submitQuiz() {
     });
 
     let score = correct - (wrong * 0.25);
-
-    console.log("Submitting to Supabase...");
-
-    const user_id = localStorage.getItem("user_id");
-    const username = localStorage.getItem("username");
-    const { data, error } = await supabaseClient
-        .from("Quiz_attempts")
-        .insert([{
-            username:username,
-            user_id:user_id,
-            Subject: subject,
-            no_of_questions: num,
-            correct_questions: correct,
-            time_taken: getTime() - timeLeft,
-            score,
-            answers
-        }]);
-
-    console.log("DATA:", data);
-    console.log("ERROR:", error);
-
-    if (error) {
-        console.error("INSERT ERROR:", error);
-    } else {
-        console.log("INSERT SUCCESS:", data);
-    }
-
     // 👉 STORE RESULT
     localStorage.setItem("result", JSON.stringify({
         score,
@@ -199,6 +172,28 @@ async function submitQuiz() {
 
     // 👉 REDIRECT
     window.location.href = "result.html";
+    sendToSupabase(score, correct, wrong);
+    async function sendToSupabase(score, correct, wrong) {
+        const user_id = localStorage.getItem("user_id");
+
+        const { error } = await supabaseClient
+            .from("Quiz_attempts")
+            .insert([{
+                user_id,
+                Subject: subject,
+                no_of_questions: num,
+                correct_questions: correct,
+                time_taken: getTime() - timeLeft,
+                score,
+                answers
+            }]);
+
+        if (error) {
+            console.error("Insert failed:", error);
+        } else {
+            console.log("Saved successfully");
+        }
+    }
 }
 
 loadQuestions();
