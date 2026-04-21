@@ -198,7 +198,7 @@ async function submitQuiz() {
     }));
 
     // 👉 REDIRECT
-    //window.location.href = "result.html";
+    window.location.href = "result.html";
 }
 
 loadQuestions();
