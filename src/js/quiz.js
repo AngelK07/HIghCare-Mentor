@@ -175,11 +175,13 @@ async function submitQuiz() {
     sendToSupabase(score, correct, wrong);
     async function sendToSupabase(score, correct, wrong) {
         const user_id = localStorage.getItem("user_id");
+        const username = localStorage.getItem("username");
 
         const { error } = await supabaseClient
             .from("Quiz_attempts")
             .insert([{
-                user_id,
+                user_id:user_id,
+                username:username,
                 Subject: subject,
                 no_of_questions: num,
                 correct_questions: correct,
